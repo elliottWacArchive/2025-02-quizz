@@ -9,7 +9,11 @@ async function load(i) {
 }
 
 async function affQuestion(i) {
-    data = await load(i);
+    if (load != false) {
+        data = await load(i);
+    } else {
+        return false;
+    }
     const question = document.getElementById('question');
     let result = [];
     question.innerHTML = data.question;
